@@ -114,6 +114,7 @@ function build_protobuf() {
 }
 
 echo "begin to build protobuf"
+cd $SRC_DIR
 git submodule update -f --init protobuf
 protobuf_dir=$SRC_DIR/protobuf
 protobuf_build=$SRC_DIR/protobuf/build
@@ -121,6 +122,7 @@ protobuf_install=$SRC_DIR/protobuf/install
 build_protobuf $protobuf_dir $protobuf_build $protobuf_install
 
 export PATH=$SRC_DIR/protobuf/install/bin:$PATH
+export CMAKE_PREFIX_PATH=$SRC_DIR/protobuf/install/lib:$CMAKE_PREFIX_PATH
 python3_path=$(which "python3")
 function build_onnx() {
     cd $1 
@@ -138,6 +140,7 @@ function build_onnx() {
 }
 
 echo "begin to build onnx"
+cd $SRC_DIR
 git submodule update -f --init onnx
 onnx_dir=$SRC_DIR/onnx
 onnx_build=$SRC_DIR/onnx/build
