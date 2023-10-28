@@ -1,5 +1,4 @@
 #!/bin/bash -e
-set -x
 READLINK=readlink
 OS=$(uname -s)
 if [ $OS = "Darwin" ];then
